@@ -14,14 +14,14 @@ $di->set('ImageController', function() use ($di) {
     return $controller;
 });
 
-	$link = "test.jpg";
-	$width = 240;
-	$height = 300;
+$link = "test.jpg";
+$width = 240;
+$height = 300;
 
-	$image = $app->dispatcher->forward([
-        'controller' => 'image',
-        'action'     => 'show',
-		'params'	 => [$link,$width,$height],
-    ]);
-	
-	$app->views->addString($image);
+$image = $app->dispatcher->forward([
+'controller' => 'image',
+'action'     => 'show',
+'params'	 => [$link,$width,$height],
+]);
+
+$app->views->addString($image);
