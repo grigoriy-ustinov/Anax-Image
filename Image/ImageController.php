@@ -30,28 +30,52 @@ class ImageController implements \Anax\DI\IInjectionAware
 		$image->validate();
 		$image->getImageInfo();
 		$image->createFilenameForCache();
+		$image->openOriginalImage();
+		$image->calculateNewImage();
+		$image->resizeImage();
+	    $image->applyFilters();
+	    $image->SaveAs();
 		$toShow = $image->checkImageAndUse();
 		
-		
-		$filler = explode("/",$toShow);
-		$endFilename = end($filler);
-		$pathImage = $path .'/cache/'. $endFilename;
-		if($toShow == null)
+		if($toShow != null)
 		{
-			$image->openOriginalImage();
-			$image->calculateNewImage();
-			$image->resizeImage();
-		    $image->applyFilters();
-		    $image->SaveAs();
-		   	$toShow = $image->outputImage($pathToImage);
-			
 			$filler = explode("/",$toShow);
 			$endFilename = end($filler);
-			$pathImage = $path .'/img/'. $endFilename;
+			$output = $path .'/cache/'. $endFilename;
 		}
 		
-		$imgLink = "<img src='{$pathImage}' alt=''/>";
+		$imgLink = "<img src='{$output}' alt=''/>";
 		return $imgLink;
+	}
+	
+	
+	public function addAction()
+	{
+		$this->views->add('image/add');
+	}
+	
+	
+	public function saveAction()
+	{
+		
+		if(!defined('IMG_PATH'))
+		{
+			define('IMG_PATH', ANAX_INSTALL_PATH . 'webroot/img' . DIRECTORY_SEPARATOR);
+		}
+		if(isset($_FILES['picture'])&& ($_FILES['picture']['name'] != null))
+		{
+			$allowed = array('jpeg','jpg','png');
+			$filename = $_FILES['picture']['name'];
+			$tempvar = explode('.' , $filename);
+			$fileext = strtolower(end($tempvar));
+			$filetemp = $_FILES['picture']['tmp_name'];
+			if(in_array($fileext,$allowed) === true)
+			{
+				$file_path = IMG_PATH . substr(md5(time()) , 0 , 10). '.' . $fileext;
+				move_uploaded_file($_FILES['picture']['tmp_name'], $file_path);
+			}
+			$this->response->redirect($this->request->getBaseUrl());
+		}
 	}
 	
 }
