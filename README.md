@@ -7,13 +7,14 @@ Usage
 -------
 
 Here is the small example of ImageController usage, you have to define width and height and a image name that you want to scale.
-<tt>
+<code>
 $di->set('ImageController', function() use ($di) {
     $controller = new \Anax\Image\ImageController();
     $controller->setDI($di);
     return $controller;
 });
-
+<code/>
+<code>
 $link = "test.jpg";
 $width = 240;
 $height = 300;
@@ -25,4 +26,4 @@ $image = $app->dispatcher->forward([
 ]);
 
 $app->views->addString($image);
-<tt/>
+<code/>
