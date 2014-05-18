@@ -2,7 +2,7 @@ Image module for Anax
 ========================
 Getting started
 ------------------
-In order to use this module you have to copy Image folder into your "src" directory. Then you should create "img" and "cache" folders in your webroot directory, also don't forget to set permission for cache folder to 777. Default directory for images is webroot/img and I would not recomend to change it since there is two links that has to point in the same folder, one for Image class and one for HTML output.
+In order to use this module you have to copy Image folder into your "src" directory. Then you should create "img" and "cache" folders in your webroot directory, also don't forget to set permission for cache folder to 777. Default directory for images is webroot/img and I would not recomend to change it since there is two links that has to point in the same folder, one for Image class and one for HTML output. UPD You should also set img folder as all writeble 777.
 Usage
 -------
 
