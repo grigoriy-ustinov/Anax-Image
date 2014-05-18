@@ -8,22 +8,21 @@ Usage
 
 Here is the small example of ImageController usage, you have to define width and height and a image name that you want to scale.
 <code>
-$di->set('ImageController', function() use ($di) {
-    $controller = new \Anax\Image\ImageController();
-    $controller->setDI($di);
-    return $controller;
-});
-<code/>
-<code>
-$link = "test.jpg";
-$width = 240;
-$height = 300;
-
-$image = $app->dispatcher->forward([
-	'controller' => 'image',
-	'action'     => 'show',
-	'params'	 => [$link,$width,$height],
-]);
-
-$app->views->addString($image);
+	$di->set('ImageController', function() use ($di) {
+	    $controller = new \Anax\Image\ImageController();
+	    $controller->setDI($di);
+	    return $controller;
+	});
+	
+	$link = "test.jpg";
+	$width = 240;
+	$height = 300;
+	
+	$image = $app->dispatcher->forward([
+		'controller' => 'image',
+		'action'     => 'show',
+		'params'	 => [$link,$width,$height],
+	]);
+	
+	$app->views->addString($image);
 <code/>
