@@ -1,0 +1,22 @@
+{
+   "name": "grishazmeypro/image",
+    "type": "library",
+    "description": "Small module for image scaling and management",
+    "keywords": ["mvc", "anax", "image", "phpgd"],
+    "homepage": "https://github.com/grishazmeypro/Anax-Image",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grigoriy Ustinov",
+            "email": "grisha@telia.com",
+            "homepage": "",
+            "role": "Student"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "grus\\": "src/" }
+    }
+}
