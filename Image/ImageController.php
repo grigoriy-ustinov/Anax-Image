@@ -25,7 +25,6 @@ class ImageController implements \Anax\DI\IInjectionAware
 		}
 		
 		$image = new \Anax\Image\Image($filename,$width,$height);
-		$pathToImage = realpath(IMG_PATH . $filename);
 		
 		$image->validate();
 		$image->getImageInfo();
@@ -72,7 +71,7 @@ class ImageController implements \Anax\DI\IInjectionAware
 			if(in_array($fileext,$allowed) === true)
 			{
 				$file_path = IMG_PATH . substr(md5(time()) , 0 , 10). '.' . $fileext;
-				move_uploaded_file($_FILES['picture']['tmp_name'], $file_path);
+				move_uploaded_file($filetemp, $file_path);
 			}
 			$this->response->redirect($this->request->getBaseUrl());
 		}
