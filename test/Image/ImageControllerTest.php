@@ -5,7 +5,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 {
 	public function testOutputImage()
 	{
-		require('../Image/ImageController.php');
+		require('../../Image/ImageController.php');
 		define('IMG_PATH' ,__DIR__ .'imgtest/');
 		define('CACHE_PATH' , __DIR__ );
 		$link = 'test.jpg';
