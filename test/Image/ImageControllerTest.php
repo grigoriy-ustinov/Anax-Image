@@ -11,23 +11,16 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$link = 'test.jpg';
 		$height = 240;
 		$width = 300;
+		$flag = false;
 		$object = new Anax\Image\ImageController();
 		$object->showAction($link,$width,$height);
 		$imgInfo = getimagesize(CACHE_PATH.'-.-test_240_300_q60.jpg');
-		if(($imgInfo[0] != 300)&&($imgInfo[0] != 240))
+		if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
 		{
-			$this->fail();
-		}
-		else
-		{
-			$this->pass();
+			$flag = true;
 		}
 		
-		
+		$this->assertTrue($flag);
 	}
-	
-	
-	
-	
 	
 }
