@@ -3,7 +3,7 @@ namespace Anax\Image;
 
 class ImageControllerTest extends \PHPUnit_Framework_TestCase
 {
-	public function OutputImageTest()
+	public function testOutputImage()
 	{
 		require('../Image/ImageController.php');
 		define('IMG_PATH' ,__DIR__ .'imgtest/');
