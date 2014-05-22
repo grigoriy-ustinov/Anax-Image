@@ -42,6 +42,10 @@ class ImageController implements \Anax\DI\IInjectionAware
 			$endFilename = end($filler);
 			$output = $path .'/cache/'. $endFilename;
 		}
+		else 
+		{
+			die('Could not fix image');
+		}
 		
 		$imgLink = "<img src='{$output}' alt=''/>";
 		return $imgLink;
