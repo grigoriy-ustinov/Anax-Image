@@ -27,7 +27,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		//$file = $image->getTestInfo();
 		
 		
-		$imgInfo = getimagesize(IMG_PATH.'test.jpg');
+		$imgInfo = getimagesize(IMG_PATH.'-.-test_240_300_q60.jpg');
 		//$this->assertEquals($imgInfo[0],300);
 		$this->assertEquals(240,$imgInfo[1]);
 	}
