@@ -28,7 +28,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		//$file = $image->getTestInfo();
 		
 		
-		$imgInfo = getimagesize(IMG_PATH.'-.-test.jpg');
+		$imgInfo = getimagesize(IMG_PATH.'test.jpg');
 		if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
 		{
 			$flag = true;
