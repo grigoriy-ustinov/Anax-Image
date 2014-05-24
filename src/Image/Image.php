@@ -164,6 +164,11 @@ EOD;
 }
 
 
+public function getTestInfo()
+{
+	return $this->image;
+}
+
 
 //
 // Get information on the image
