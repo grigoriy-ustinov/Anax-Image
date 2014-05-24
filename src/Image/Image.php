@@ -23,6 +23,7 @@ class Image
 	private $filesize = null;
 	private $finalWidth = null;
 	private $finalHeight = null;
+	private $aspectRatio = null;
 	public function __construct($filename,$width,$height, $cropToFit = true)
 	{
 		$message = null;
@@ -195,13 +196,13 @@ public function getImageInfo()
 //
 public function calculateNewImage()
 {
-	$aspectRatio = $this->width / $this->height;
+	$this->aspectRatio = $this->width / $this->height;
 	if($this->newWidth && !$this->newHeight) {
-	  $this->newHeight = round($this->newWidth / $aspectRatio);
+	  $this->newHeight = round($this->newWidth / $this->aspectRatio);
 	  if($this->verbose) { $this->verbose("New width is known {$this->newWidth}, height is calculated to {$this->newHeight}."); }
 	}
 	else if(!$this->newWidth && $this->newHeight) {
-	  $this->newWidth = round($this->newHeight * $aspectRatio);
+	  $this->newWidth = round($this->newHeight * $this->aspectRatio);
 	  if($this->verbose) { $this->verbose("New height is known {$this->newHeight}, width is calculated to {$this->newWidth}."); }
 	}
 	else if($this->newWidth && $this->newHeight) {
@@ -297,8 +298,8 @@ public function resizeImage()
 {
 	if($this->cropToFit && $this->newWidth && $this->newHeight) {
 	  $targetRatio = $this->newWidth / $this->newHeight;
-	  $cropWidth   = $targetRatio > $aspectRatio ? $this->width : round($this->height * $targetRatio);
-	  $cropHeight  = $targetRatio > $aspectRatio ? round($this->width  / $targetRatio) : $this->height;
+	  $cropWidth   = $targetRatio > $this->aspectRatio ? $this->width : round($this->height * $targetRatio);
+	  $cropHeight  = $targetRatio > $this->aspectRatio ? round($this->width  / $targetRatio) : $this->height;
 	  if($this->verbose) { $this->verbose("Crop to fit into box of {$this->newWidth}x{$this->newHeight}. Cropping dimensions: {$cropWidth}x{$cropHeight}."); }
 	}
 	else if($this->cropToFit) {
