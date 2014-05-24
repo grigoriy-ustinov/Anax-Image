@@ -21,6 +21,8 @@ class Image
 	private $cacheFileName = null;
 	private $fileExtension = null;
 	private $filesize = null;
+	private $cropWidth = null;
+	private $cropHeight = null;
 	private $finalWidth = null;
 	private $finalHeight = null;
 	private $aspectRatio = null;
