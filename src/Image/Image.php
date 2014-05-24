@@ -26,11 +26,11 @@ class Image
 	private $finalWidth = null;
 	private $finalHeight = null;
 	private $aspectRatio = null;
-	public function __construct($filename,$width,$height, $cropToFit = true)
+	public function __construct($filename,$width,$height,$saveAS, $cropToFit = true)
 	{
 		$this->src        = $filename;
 		$this->verbose    = isset($_GET['verbose']) ? true              : null;
-		$this->saveAs     = isset($_GET['save-as']) ? $_GET['save-as']  : null;
+		$this->saveAs     = $saveAs;
 		$this->quality    = isset($_GET['quality']) ? $_GET['quality']  : 60;
 		$this->ignoreCache = isset($_GET['no-cache']) ? true           : null;
 		$this->newWidth   = $width;
