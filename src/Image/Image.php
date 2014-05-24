@@ -320,7 +320,7 @@ public function resizeImage()
 public function applyFilters()
 {
 	if($this->sharpen) {
-	  $this->image = $this->sharpenImage($this->image);
+	  $this->image = $this->sharpenImage();
 	}
 }
 
