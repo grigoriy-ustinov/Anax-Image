@@ -11,7 +11,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$height = 240;
 		$width = 300;
 		$filename = "test.jpg";
-		$original = getimagesize(IMG_PATH,$filename);
+		$original = getimagesize(IMG_PATH.$filename);
 		chmod(IMG_PATH,0777);
 		chmod(CACHE_PATH,0777);
 		$saveAs = 'jpg';
