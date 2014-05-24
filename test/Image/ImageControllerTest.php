@@ -10,7 +10,6 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		define('CACHE_PATH' , __DIR__ .DIRECTORY_SEPARATOR);
 		$height = 240;
 		$width = 300;
-		$flag = false;
 		$filename = "test.jpg";
 		
 		chmod(IMG_PATH,0777);
@@ -29,12 +28,8 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		
 		
 		$imgInfo = getimagesize(IMG_PATH.'test.jpg');
-		if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
-		{
-			$flag = true;
-		}
-		
-		$this->assertTrue($flag);
+		$this->assertEquals($imgInfo[0],300);
+		$this->assertEquals($imgInfo[1],240);
 	}
 	
 }
