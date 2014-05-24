@@ -306,7 +306,7 @@ public function resizeImage()
 	  if($this->verbose) { $this->verbose("Resizing, crop to fit."); }
 	  $cropX = round(($this->width - $cropWidth) / 2);  
 	  $cropY = round(($this->height - $cropHeight) / 2);    
-	  $imageResized = $this->createImageKeepTransparency($this->newWidth, $this->newHeight);
+	  $imageResized = $this->createImageKeepTransparency();
 	  imagecopyresampled($imageResized, $this->image, 0, 0, $cropX, $cropY, $this->newWidth, $this->newHeight, $cropWidth, $cropHeight);
 	  $this->image = $imageResized;
 	  $this->width = $this->newWidth;
