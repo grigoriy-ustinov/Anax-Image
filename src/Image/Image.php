@@ -26,7 +26,6 @@ class Image
 	private $aspectRatio = null;
 	public function __construct($filename,$width,$height, $cropToFit = true)
 	{
-		$message = null;
 		$this->src        = $filename;
 		$this->verbose    = isset($_GET['verbose']) ? true              : null;
 		$this->saveAs     = isset($_GET['save-as']) ? $_GET['save-as']  : null;
