@@ -11,7 +11,6 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$height = 240;
 		$width = 300;
 		$filename = "test.jpg";
-		$original = getimagesize(IMG_PATH.$filename);
 		chmod(IMG_PATH,0777);
 		chmod(CACHE_PATH,0777);
 		$saveAs = 'jpg';
@@ -24,13 +23,12 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$image->resizeImage();
 	    $image->applyFilters();
 	    $image->SaveAs();
-		//$file = $image->getTestInfo();
-		//$this->assertEquals($image->getCacheFileName(), "test");
+
 		
 		$imgInfo = getimagesize($image->getCacheFileName());
 		$this->assertEquals($imgInfo,$original);
-		//$this->assertEquals($imgInfo[0],300);
-		$this->assertEquals(240,$imgInfo[1]);
+		$this->assertEquals($imgInfo[0],300);
+		$this->assertEquals(222,$imgInfo[1]);
 	}
 	
 }
