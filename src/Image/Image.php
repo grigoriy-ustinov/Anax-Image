@@ -33,7 +33,7 @@ class Image
 		$this->ignoreCache = isset($_GET['no-cache']) ? true           : null;
 		$this->newWidth   = $width;
 		$this->newHeight  = $height;
-		$this->cropToFit  = isset($_GET['crop-to-fit']) ? true : null;
+		$this->cropToFit  = $cropToFit;
 		$this->sharpen    = isset($_GET['sharpen']) ? true : null;
 		$this->pathToImage = realpath(IMG_PATH . $this->src);
 	}
