@@ -26,7 +26,6 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 
 		
 		$imgInfo = getimagesize($image->getCacheFileName());
-		$this->assertEquals($imgInfo,$original);
 		$this->assertEquals($imgInfo[0],300);
 		$this->assertEquals(222,$imgInfo[1]);
 	}
