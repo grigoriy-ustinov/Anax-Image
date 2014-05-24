@@ -297,16 +297,16 @@ public function resizeImage()
 {
 	if($this->cropToFit && $this->newWidth && $this->newHeight) {
 	  $targetRatio = $this->newWidth / $this->newHeight;
-	  $cropWidth   = $targetRatio > $this->aspectRatio ? $this->width : round($this->height * $targetRatio);
-	  $cropHeight  = $targetRatio > $this->aspectRatio ? round($this->width  / $targetRatio) : $this->height;
-	  if($this->verbose) { $this->verbose("Crop to fit into box of {$this->newWidth}x{$this->newHeight}. Cropping dimensions: {$cropWidth}x{$cropHeight}."); }
+	  $this->cropWidth   = $targetRatio > $this->aspectRatio ? $this->width : round($this->height * $targetRatio);
+	  $this->cropHeight  = $targetRatio > $this->aspectRatio ? round($this->width  / $targetRatio) : $this->height;
+	  if($this->verbose) { $this->verbose("Crop to fit into box of {$this->newWidth}x{$this->newHeight}. Cropping dimensions: {$this->cropWidth}x{$this->cropHeight}."); }
 	}
 	else if($this->cropToFit) {
 	  if($this->verbose) { $this->verbose("Resizing, crop to fit."); }
-	  $cropX = round(($this->width - $cropWidth) / 2);  
-	  $cropY = round(($this->height - $cropHeight) / 2);    
+	  $cropX = round(($this->width - $this->cropWidth) / 2);  
+	  $cropY = round(($this->height - $this->cropHeight) / 2);    
 	  $imageResized = $this->createImageKeepTransparency();
-	  imagecopyresampled($imageResized, $this->image, 0, 0, $cropX, $cropY, $this->newWidth, $this->newHeight, $cropWidth, $cropHeight);
+	  imagecopyresampled($imageResized, $this->image, 0, 0, $cropX, $cropY, $this->newWidth, $this->newHeight, $this->cropWidth, $this->cropHeight);
 	  $this->image = $imageResized;
 	  $this->width = $this->newWidth;
 	  $this->height = $this->newHeight;
