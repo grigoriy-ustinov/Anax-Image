@@ -7,7 +7,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 	{
 		
 		define('IMG_PATH' ,__DIR__ .DIRECTORY_SEPARATOR.'imgtest'. DIRECTORY_SEPARATOR);
-		define('CACHE_PATH' , __DIR__ );
+		define('CACHE_PATH' , __DIR__ .DIRECTORY_SEPARATOR);
 		$link = 'test.jpg';
 		$height = 240;
 		$width = 300;
