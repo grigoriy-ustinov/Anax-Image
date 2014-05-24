@@ -12,8 +12,17 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$height = 240;
 		$width = 300;
 		$flag = false;
-		$object = new \Anax\Image\ImageController();
-		$object->showAction($link,$width,$height);
+		
+		
+		$image = new \Anax\Image\Image($filename,$width,$height);		
+		$image->validate();
+		$image->getImageInfo();
+		$image->createFilenameForCache();
+		$image->openOriginalImage();
+		$image->calculateNewImage();
+		$image->resizeImage();
+	    $image->applyFilters();
+	    $image->SaveAs();
 		$imgInfo = getimagesize(CACHE_PATH.'-.-test_240_300_q60.jpg');
 		if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
 		{
