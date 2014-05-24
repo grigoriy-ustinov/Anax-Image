@@ -12,7 +12,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$height = 240;
 		$width = 300;
 		$flag = false;
-		
+		$filename = "test.jpg";
 		
 		$image = new \Anax\Image\Image($filename,$width,$height);		
 		$image->validate();
