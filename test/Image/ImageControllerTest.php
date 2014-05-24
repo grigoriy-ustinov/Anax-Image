@@ -25,10 +25,13 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$image->resizeImage();
 	    $image->applyFilters();
 	    $image->SaveAs();
-		$imgInfo = getimagesize(CACHE_PATH.'-.-test_240_300_q60.jpg');
-		if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
+		if(file_exists(CACHE_PATH.'-.-test_240_300_q60.jpg'))
 		{
-			$flag = true;
+			$imgInfo = getimagesize(CACHE_PATH.'-.-test_240_300_q60.jpg');
+			if(($imgInfo[0] == 300)&&($imgInfo[0] == 240))
+			{
+				$flag = true;
+			}
 		}
 		
 		$this->assertTrue($flag);
