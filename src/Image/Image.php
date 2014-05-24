@@ -248,7 +248,10 @@ public function createFilenameForCache()
 	if($this->verbose) { $this->verbose("Cache file is: {$this->cacheFileName}"); }
 }
 
-
+public function getCacheFileName()
+{
+	return $this->cacheFileName;
+}
 //
 // Is there already a valid image in the cache directory, then use it and exit
 //
