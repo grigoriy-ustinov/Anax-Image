@@ -15,7 +15,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		$filename = "test.jpg";
 		
 		$image = new \Anax\Image\Image($filename,$width,$height);		
-		$image->validate();
+		//$image->validate();
 		$image->getImageInfo();
 		$image->createFilenameForCache();
 		$image->openOriginalImage();
