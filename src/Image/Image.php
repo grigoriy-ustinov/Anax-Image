@@ -2,9 +2,7 @@
 namespace Anax\Image;
 
 class Image 
-{
-	use \Anax\DI\TInjectionAware;
-	
+{	
 	private $verbose = null;
 	private $image = null;
 	private $src = null;
