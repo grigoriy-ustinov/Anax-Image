@@ -15,7 +15,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 		chmod(IMG_PATH,0777);
 		chmod(CACHE_PATH,0777);
 		
-		$image = new \Anax\Image\Image($filename,$width,$height);		
+		$image = new \Anax\Image\Image($filename,$width,$height, true);		
 		$image->validate();
 		$image->getImageInfo();
 		$image->createFilenameForCache();

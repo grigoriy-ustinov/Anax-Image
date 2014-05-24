@@ -23,7 +23,7 @@ class Image
 	private $filesize = null;
 	private $finalWidth = null;
 	private $finalHeight = null;
-	public function __construct($filename,$width,$height)
+	public function __construct($filename,$width,$height, $cropToFit = true)
 	{
 		$message = null;
 		$this->src        = $filename;
