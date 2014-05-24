@@ -6,7 +6,7 @@ class ImageControllerTest extends \PHPUnit_Framework_TestCase
 	public function testOutputImage()
 	{
 		
-		define('IMG_PATH' ,__DIR__ .'imgtest/');
+		define('IMG_PATH' ,__DIR__ .'imgtest'. DIRECTORY_SEPARATOR);
 		define('CACHE_PATH' , __DIR__ );
 		$link = 'test.jpg';
 		$height = 240;
