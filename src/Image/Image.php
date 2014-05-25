@@ -26,7 +26,7 @@ class Image
 	private $finalWidth = null;
 	private $finalHeight = null;
 	private $aspectRatio = null;
-	public function __construct($filename,$width,$height,$saveAs, $cropToFit = true)
+	public function __construct($filename,$width,$height,$saveAs = 'jpg', $cropToFit = true)
 	{
 		$this->src        = $filename;
 		$this->verbose    = isset($_GET['verbose']) ? true              : null;
