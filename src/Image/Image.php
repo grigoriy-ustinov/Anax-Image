@@ -177,7 +177,7 @@ public function getTestInfo()
 //
 public function getImageInfo()
 {
-	$imgInfo = list($this->width, $this->height, $type, $attr) = getimagesize($this->pathToImage);
+	$imgInfo = list($this->width, $this->height, $type) = getimagesize($this->pathToImage);
 	!empty($imgInfo) or $this->errorMessage("The file doesn't seem to be an image.");
 	$mime = $imgInfo['mime'];
 	if($this->verbose) {
